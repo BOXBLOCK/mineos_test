@@ -1,0 +1,10 @@
+{
+	installSomeApps = "Установить приложения",
+	installWallpapers = "Загрузить обои",
+	downloading = "Загрузка",
+	reboot = "Перезагрузить",
+	needToReboot = "Система установлена, наслаждайтесь",
+	terms = "Я принимаю условия соглашения",
+	flashingEEPROM = "Идет установка EFI...",
+	flashEEPROM = "Установить EFI",
+}
