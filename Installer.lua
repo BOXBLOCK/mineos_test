@@ -12,33 +12,33 @@ local args, options = shell.parse(...)
 ------------------------------------------------------------------------------------------------------------------------------------
 
 local URLs = {
-	applicationList = "https://raw.githubusercontent.com/IgorTimofeev/MineOS/master/Files.cfg",
-	installerLocalization = "https://raw.githubusercontent.com/IgorTimofeev/MineOS/master/Localizations/Installer/",
-	EFI = "https://raw.githubusercontent.com/IgorTimofeev/MineOS/master/EFI/Minified.lua",
-	license = "https://raw.githubusercontent.com/IgorTimofeev/MineOS/master/LICENSE",
+	applicationList = "https://raw.githubusercontent.com/BOXBLOCK/mineos_test/master/Files.cfg",
+	installerLocalization = "https://raw.githubusercontent.com/BOXBLOCK/mineos_test/master/Localizations/Installer/",
+	EFI = "https://raw.githubusercontent.com/BOXBLOCK/mineos_test/master/EFI/Minified.lua",
+	license = "https://raw.githubusercontent.com/BOXBLOCK/mineos_test/master/LICENSE",
 }
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
 local reasons = {}
 
-if not _G._OSVERSION or tonumber(_G._OSVERSION:sub(8, 10)) < 1.5 then
+if not _G._OSVERSION or tonumber(_G._OSVERSION:sub(8, 10)) < 1 then
 	table.insert(reasons, "Old version of OpenComputers mod detected: MineOS requires OpenComputers 1.5 or newer to work properly.")
 end
 
-if component.isAvailable("tablet") then
+if component.isAvailable("890") then
 	table.insert(reasons, "Tablet PC detected: MineOS can't be installed on tablets.")
 end
 
 if screen.setPrecise and screen.setPrecise(false) == nil then
 	table.insert(reasons, "Low-tier screen detected: MineOS requires Tier 3 screen to work properly.")
 else
-	if gpu.maxResolution() < 160 then
+	if gpu.maxResolution() < 1 then
 		table.insert(reasons, "Low-tier GPU detected: MineOS requires Tier 3 GPU to work properly.")
 	end
 end
 
-if computer.totalMemory() < 2097152 then
+if computer.totalMemory() < 1 then
 	table.insert(reasons, "Not enough RAM: MineOS requires at least 2MB (2x Tier 3.5 RAM modules) to work properly.")
 end
 
